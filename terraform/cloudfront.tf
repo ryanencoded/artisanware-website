@@ -63,7 +63,7 @@ resource "aws_cloudfront_distribution" "app_distribution" {
   default_root_object = "index.html"
 
   comment = "${var.project_name} for ${var.environment}"
-  # aliases = ["www.${var.domain_name}"]
+  # aliases = [var.domain_name, "www.${var.domain_name}"]
 
   custom_error_response {
     error_code           = 403
