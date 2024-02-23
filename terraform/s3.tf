@@ -4,6 +4,7 @@ resource "aws_s3_bucket" "app_bucket" {
   tags = {
     Environment = var.environment
     Client = var.client_name
+    Project = var.project_name
   }
 }
 
@@ -13,8 +14,8 @@ resource "aws_s3_bucket_cors_configuration" "app_cors" {
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["GET"]
-    # allowed_origins = ["https://${aws_cloudfront_distribution.app_distribution.domain_name}"]
-     allowed_origins = ["https://${var.domain_name}"]
+    allowed_origins = ["https://${aws_cloudfront_distribution.app_distribution.domain_name}"]
+    # allowed_origins = ["https://${var.domain_name}"]
   }
 }
 
